@@ -27,6 +27,22 @@ addEmployee(employee){
         console.log("Error");
     }
 }
+//Task 4 adds a method in which you can get a whole departments salary along with the bonus the manager gets as well
+    calculateTotalSalaryWithBonus() {
+    let salaryWithBonus = 0;
+
+    this.employees.forEach(employee => {
+        salaryWithBonus += employee.salary;
+        if ('bonus' in employee) {
+            salaryWithBonus += employee.bonus;
+        }
+        else{
+            console.log('Error');   
+        }
+    });
+
+    console.log(salaryWithBonus);
+}
 }
 
 //Task 3 creates a manager class that extendeds from the employ class
@@ -63,3 +79,6 @@ console.log(employee3);
 const manager = new Manager('Udhay', 'Sales Manager', 'Sales', 130000, 15000);
 //Logs the manager details
 manager.getDetails();
+
+//Logs the total salary of the HR department
+console.log(humanResources.calculateTotalSalaryWithBonus());
