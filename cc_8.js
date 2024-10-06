@@ -43,6 +43,14 @@ addEmployee(employee){
 
     console.log(salaryWithBonus);
 }
+//Task 5 adds a method to get the department salary without the bonuses
+    getDepartmentSalary() {
+    let totalSalary = 0;
+    this.employees.forEach(employee => {
+        totalSalary += employee.salary;
+    });
+    return totalSalary;
+}
 }
 
 //Task 3 creates a manager class that extendeds from the employ class
@@ -82,3 +90,35 @@ manager.getDetails();
 
 //Logs the total salary of the HR department
 console.log(humanResources.calculateTotalSalaryWithBonus());
+
+//Creates 2 new departments for IT and PR
+const publicRelations = new Department('PR');
+const InfoTech = new Department('IT');
+
+//Creates 2 new employees and 1 new manager for the PR department
+const employee5 = new Employee('Alice', 'PR Coordinator', 'PR', 100000);
+const employee6 = new Employee('Bob', 'PR Coordinator', 'PR', 90000);
+const manager1 = new Manager('Charlie', 'PR Manager', 'PR', 120000, 20000);
+
+//Creates 2 new employees and 1 new manager for the IT departemnt
+const employee7 = new Employee('David', 'IT Assistant', 'IT', 65000);
+const employee8 = new Employee('Eve', 'IT Technician', 'IT', 80000);
+const manager2 = new Manager('Frank', 'IT Manager', 'IT', 110000, 15000);
+
+//Adds the created employees into the PR department through the class
+publicRelations.addEmployee(employee5);
+publicRelations.addEmployee(employee6);
+publicRelations.addEmployee(manager1);
+
+//Adds the created employees into the IT department through the class
+InfoTech.addEmployee(employee7);
+InfoTech.addEmployee(employee8);
+InfoTech.addEmployee(manager2);
+
+//Shows total salaries for the PR department
+console.log(publicRelations.getDepartmentSalary());
+console.log(publicRelations.calculateTotalSalaryWithBonus());
+
+//Shows total salaries for the IT department
+console.log(InfoTech.getDepartmentSalary());
+console.log(InfoTech.calculateTotalSalaryWithBonus());
