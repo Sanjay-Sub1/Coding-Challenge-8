@@ -29,6 +29,16 @@ addEmployee(employee){
 }
 }
 
+//Task 3 creates a manager class that extendeds from the employ class
+class Manager extends Employee {
+    constructor(name, salary, position, department, bonus) {
+        super(name, salary, position, department);
+        this.bonus = bonus;
+    }
+//Overrides the getDetails from the original employee class to also show the bonus
+    getDetails(){console.log(`${this.name},${this.position},${this.salary},${this.bonus}`)};
+}
+
 //Adds 2 new employees into the class
 const employee1 = new Employee('Sanjay', 150000, 'Sales VP', 'Sales');
 const employee2 = new Employee('Sander', 85000, 'Director', 'Marketing');
@@ -43,8 +53,13 @@ const employee3 = new Employee('Charles','Assistant' , 'HR', 80000);
 const employee4 = new Employee('Leila', 'Manager', 'HR', 130000);
 
 //Using the addEmployee method to add our newly created emplyoees into the class
-engineering.addEmployee(employee3);
-engineering.addEmployee(employee4);
+humanResources.addEmployee(employee3);
+humanResources.addEmployee(employee4);
 
 //Logs the data for employee3
 console.log(employee3);
+
+//Creates a new manager for the manager class
+const manager = new Manager('Udhay', 'Sales Manager', 'Sales', 130000, 15000);
+//Logs the manager details
+manager.getDetails();
